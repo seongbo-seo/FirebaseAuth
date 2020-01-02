@@ -3,6 +3,7 @@ package com.example.firebaseauth;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -70,8 +71,6 @@ public class PhoneAuth extends AppCompatActivity {
         }
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, code);
         signInWithPhoneAuthCredential(credential);
-
-
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -82,8 +81,7 @@ public class PhoneAuth extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(getApplicationContext(),"인증성공",Toast.LENGTH_LONG).show();
-
-
+                            goToSignUpPage();
                             // ...
                         } else {
 
@@ -146,5 +144,12 @@ public class PhoneAuth extends AppCompatActivity {
             codeSent =s;
         }
     };
+
+
+    public void goToSignUpPage(){
+        Intent intent = new Intent(getApplicationContext(),SignUpActivity.class);
+        intent.putExtra("phone",phone);
+        startActivity(intent);
+    }
 
 }
