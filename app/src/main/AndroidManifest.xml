@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainFrame"></activity>
+        <activity android:name=".ResultRecylerFragment"></activity>
+        <activity android:name=".MainFrame" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".PhoneAuth" />
         <activity android:name=".MainActivity">
